@@ -72,7 +72,7 @@
             </objects>
             <point key="canvasLocation" x="84" y="37.331334332833585"/>
         </scene>
-        <!--Tweets View Controller-->
+        <!--Tweets-->
         <scene sceneID="F0n-Nd-phj">
             <objects>
                 <viewController id="mWl-5L-Lhd" customClass="TweetsViewController" customModule="CodePathTwitterDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -81,17 +81,17 @@
                         <viewControllerLayoutGuide type="bottom" id="sJJ-WO-DzQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0e5-fP-hHJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="127" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TCG-XO-ONE">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="127" id="tnU-7M-WxI" customClass="TweetCell" customModule="CodePathTwitterDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="127"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="127"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tnU-7M-WxI" id="vxB-48-cCe">
-                                            <frame key="frameInset" width="375" height="126"/>
+                                            <frame key="frameInset" width="375" height="126.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LDk-n7-naR">
@@ -158,7 +158,7 @@
                             <constraint firstAttribute="trailing" secondItem="TCG-XO-ONE" secondAttribute="trailing" id="zTm-tR-cca"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0Hr-4h-QDS"/>
+                    <navigationItem key="navigationItem" title="Tweets" id="0Hr-4h-QDS"/>
                     <connections>
                         <outlet property="tableView" destination="TCG-XO-ONE" id="Jae-76-iv1"/>
                     </connections>
@@ -172,9 +172,13 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BTn-7x-7jv" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wI1-vz-Vz5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="wI1-vz-Vz5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
