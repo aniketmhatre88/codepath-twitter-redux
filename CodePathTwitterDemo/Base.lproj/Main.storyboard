@@ -160,6 +160,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tweets" id="0Hr-4h-QDS">
                         <barButtonItem key="leftBarButtonItem" title="Log out" id="kDO-Do-V9x">
+                            <color key="tintColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="onLogOutButton:" destination="mWl-5L-Lhd" id="iiJ-i8-XMz"/>
                             </connections>
