@@ -20,7 +20,6 @@ class TweetCell: UITableViewCell {
     var tweet: Tweet! {
         didSet {
             nameLabel.text = tweet.user?.name
-            timestampLabel.text = "4h"
             tweetTextLabel.text = tweet.text
             
             if let screenName = tweet.user?.screenName {
@@ -31,9 +30,21 @@ class TweetCell: UITableViewCell {
                 profilePic.setImageWith(profilePicUrl)
             }
             
-//            if let timestamp = tweet.timestamp {
-//                timestamp.compare(<#T##other: Date##Date#>)
-//            }
+            if let timestamp = tweet.timestamp {
+                let timeDiff = abs(timestamp.timeIntervalSinceNow)
+                
+                if timeDiff > 86400 {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "mm/dd/yy"
+                    timestampLabel.text = dateFormatter.string(from: timestamp)
+                } else if timeDiff > 3600 {
+                    let hours = Int(timeDiff/3600)
+                    timestampLabel.text = "\(hours)h"
+                } else {
+                    let minutes = Int(timeDiff/60)
+                    timestampLabel.text = "\(minutes)m"
+                }
+            }
         }
     }
     
