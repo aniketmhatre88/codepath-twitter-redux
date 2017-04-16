@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ComposeTweetDelegate {
     
     var tweets: [Tweet] = []
 
@@ -69,14 +69,34 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         loadHomeTimeline(refreshControl)
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "composeSegue" {
+            let composeNavigationController = segue.destination as! UINavigationController
+            let composeViewController = composeNavigationController.topViewController as! ComposeViewController
+            
+            let tweet = Tweet()
+            tweet.user = User.currentUser
+            composeViewController.tweet = tweet
+            composeViewController.composeTweetDelegate = self
+        }
     }
-    */
-
+    
+    func onComposeTweet(from tweet: Tweet) {
+        tweets.insert(tweet, at: 0)
+        tableView.reloadData()
+        
+        TwitterClient.sharedInstance.tweetStatus(
+            tweet: tweet,
+            success: { (newTweet: Tweet) in
+                loadHomeTimeline(nil)
+        }) { (error: Error?) in
+            print(error?.localizedDescription)
+        }
+    }
 }
