@@ -1,0 +1,82 @@
+//
+//  TwitterClient.swift
+//  CodePathTwitterDemo
+//
+//  Created by Mhatre, Aniket on 4/15/17.
+//  Copyright © 2017 Mhatre, Aniket. All rights reserved.
+//
+
+import UIKit
+import BDBOAuth1Manager
+
+class TwitterClient: BDBOAuth1SessionManager {
+
+    static let sharedInstance = TwitterClient(baseURL: URL(string: "https://api.twitter.com"), consumerKey: "fOZC5JtjG4kk6AVjupwPXLLjn", consumerSecret: "09lsFsA1bvcOwXErgDYRXK92iOWNyrZvHUsm3wmCxl8JqaGW80")!
+    
+    var loginSuccess: (() -> ())?
+    var loginFailure: ((Error?) -> ())?
+    
+    func login(success: @escaping () -> (), failure: @escaping (Error?) -> ()) {
+        loginSuccess = success
+        loginFailure = failure
+        
+        let twitterClient = TwitterClient.sharedInstance
+        
+        twitterClient.deauthorize()
+        twitterClient.fetchRequestToken(withPath: "oauth/request_token", method: "GET", callbackURL: URL(string: "twitterdemo://oauth"), scope: nil, success: { (requestToken: BDBOAuth1Credential?) in
+            print(requestToken)
+            
+            let url = URL(string: "https://api.twitter.com/oauth/authorize?oauth_token=\(requestToken!.token!)")
+            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+            
+            }, failure: { (error: Error?) in
+                print(error?.localizedDescription)
+        })
+    }
+    
+    func handleOpenUrl(url: URL) {
+        let requestToken = BDBOAuth1Credential(queryString: url.query)
+        fetchAccessToken(
+            withPath: "oauth/access_token",
+            method: "POST",
+            requestToken: requestToken,
+            success: { (accessToken: BDBOAuth1Credential?) in
+                self.loginSuccess?()
+            },
+            failure: { (error: Error?) in
+                self.loginFailure?(error)
+            }
+        )
+    }
+    
+    func homeTimeline(success: @escaping ([Tweet]) -> (), failure: @escaping (Error) -> ()) {
+        get(
+            "1.1/statuses/home_timeline.json",
+            parameters: nil,
+            progress: nil,
+            success: { (task: URLSessionDataTask, response: Any?) in
+                let dictionaries = response as! [NSDictionary]
+                let tweets = Tweet.tweetsWithArray(dictionaries: dictionaries)
+                success(tweets)
+            }, failure: { (task: URLSessionDataTask?, error: Error) in
+                failure(error)
+            }
+        )
+    }
+    
+    func currentAccount() {
+        get(
+            "1.1/account/verify_credentials.json",
+            parameters: nil,
+            progress: nil,
+            success: { (task: URLSessionDataTask, response: Any?) in
+                let dictionary = response as! NSDictionary
+                let user = User(dictionary: dictionary)
+                print(user)
+            }, failure: { (task: URLSessionDataTask?, error: Error) in
+                print(error.localizedDescription)
+            }
+        )
+    }
+    
+}

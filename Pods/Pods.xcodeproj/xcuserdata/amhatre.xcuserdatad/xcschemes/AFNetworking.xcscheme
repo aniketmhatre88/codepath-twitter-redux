@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8F5C20081EA27741008EA905"
-               BuildableName = "CodePathTwitterDemo.app"
-               BlueprintName = "CodePathTwitterDemo"
-               ReferencedContainer = "container:CodePathTwitterDemo.xcodeproj">
+               BlueprintIdentifier = "CF671F7E57B92905F1CC91D036D6B4A7"
+               BuildableName = "AFNetworking.framework"
+               BlueprintName = "AFNetworking"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,15 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8F5C20081EA27741008EA905"
-            BuildableName = "CodePathTwitterDemo.app"
-            BlueprintName = "CodePathTwitterDemo"
-            ReferencedContainer = "container:CodePathTwitterDemo.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -51,16 +42,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8F5C20081EA27741008EA905"
-            BuildableName = "CodePathTwitterDemo.app"
-            BlueprintName = "CodePathTwitterDemo"
-            ReferencedContainer = "container:CodePathTwitterDemo.xcodeproj">
+            BlueprintIdentifier = "CF671F7E57B92905F1CC91D036D6B4A7"
+            BuildableName = "AFNetworking.framework"
+            BlueprintName = "AFNetworking"
+            ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -70,16 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8F5C20081EA27741008EA905"
-            BuildableName = "CodePathTwitterDemo.app"
-            BlueprintName = "CodePathTwitterDemo"
-            ReferencedContainer = "container:CodePathTwitterDemo.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
