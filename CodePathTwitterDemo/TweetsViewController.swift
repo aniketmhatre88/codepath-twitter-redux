@@ -14,6 +14,11 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func onLogOutButton(_ sender: UIBarButtonItem) {
+        TwitterClient.sharedInstance.logout()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,12 +27,13 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        TwitterClient.sharedInstance.homeTimeline(success: { (tweets: [Tweet]) in
-            self.tweets = tweets
-            self.tableView.reloadData()
-        }) { (error: Error) in
-            print(error.localizedDescription)
-        }
+        // Initialize a UIRefreshControl
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        // add refresh control to table view
+        tableView.insertSubview(refreshControl, at: 0)
+        
+        loadHomeTimeline(nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,6 +51,23 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    func loadHomeTimeline(_ refreshControl: UIRefreshControl?) {
+        TwitterClient.sharedInstance.homeTimeline(success: { (tweets: [Tweet]) in
+            self.tweets = tweets
+            self.tableView.reloadData()
+            refreshControl?.endRefreshing()
+            
+        }) { (error: Error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    // Makes a network request to get updated data
+    // Updates the tableView with the new data
+    // Hides the RefreshControl
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        loadHomeTimeline(refreshControl)
+    }
 
     /*
     // MARK: - Navigation

@@ -91,7 +91,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="127"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tnU-7M-WxI" id="vxB-48-cCe">
-                                            <frame key="frameInset" width="375" height="126.5"/>
+                                            <frame key="frameInset" width="375" height="126"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LDk-n7-naR">
@@ -158,7 +158,13 @@
                             <constraint firstAttribute="trailing" secondItem="TCG-XO-ONE" secondAttribute="trailing" id="zTm-tR-cca"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Tweets" id="0Hr-4h-QDS"/>
+                    <navigationItem key="navigationItem" title="Tweets" id="0Hr-4h-QDS">
+                        <barButtonItem key="leftBarButtonItem" title="Log out" id="kDO-Do-V9x">
+                            <connections>
+                                <action selector="onLogOutButton:" destination="mWl-5L-Lhd" id="iiJ-i8-XMz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="TCG-XO-ONE" id="Jae-76-iv1"/>
                     </connections>
@@ -170,9 +176,9 @@
         <!--Navigation Controller-->
         <scene sceneID="68H-91-Xlo">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BTn-7x-7jv" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="BTn-7x-7jv" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="wI1-vz-Vz5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="wI1-vz-Vz5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
