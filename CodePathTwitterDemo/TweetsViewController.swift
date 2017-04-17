@@ -76,15 +76,26 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
+        let navigationController = segue.destination as! UINavigationController
+        
         if segue.identifier == "composeSegue" {
-            let composeNavigationController = segue.destination as! UINavigationController
-            let composeViewController = composeNavigationController.topViewController as! ComposeViewController
+            let composeViewController = navigationController.topViewController as! ComposeViewController
             
             let tweet = Tweet()
             tweet.user = User.currentUser
             composeViewController.tweet = tweet
             composeViewController.composeTweetDelegate = self
         }
+        
+        if segue.identifier == "DetailTweetSegue" {
+            let detailTweetViewController = navigationController.topViewController as! DetailTweetViewController
+            detailTweetViewController.tweet = sender as! Tweet
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tweet = tweets[indexPath.row]
+        performSegue(withIdentifier: "DetailTweetSegue", sender: tweet)
     }
     
     func onComposeTweet(from tweet: Tweet) {
