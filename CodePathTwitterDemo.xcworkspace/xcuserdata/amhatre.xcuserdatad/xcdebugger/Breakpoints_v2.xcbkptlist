@@ -147,13 +147,61 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CodePathTwitterDemo/DetailTweetViewController.swift"
-            timestampString = "514078931.947257"
+            filePath = "CodePathTwitterDemo/LoginViewController.swift"
+            timestampString = "514573107.223783"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "onLogin(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CodePathTwitterDemo.LoginViewController.onLogin (__ObjC.UIButton) -&gt; ()"
+                  moduleName = "CodePathTwitterDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/amhatre/codepath/CodePathTwitterRedux/CodePathTwitterDemo/LoginViewController.swift"
+                  timestampString = "514573339.872762"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CodePathTwitterDemo.LoginViewController.(onLogin (__ObjC.UIButton) -&gt; ()).(closure #1)"
+                  moduleName = "CodePathTwitterDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/amhatre/codepath/CodePathTwitterRedux/CodePathTwitterDemo/LoginViewController.swift"
+                  timestampString = "514573339.875161"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CodePathTwitterDemo/LoginViewController.swift"
+            timestampString = "514573126.21852"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "onLogin(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -163,13 +211,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CodePathTwitterDemo/DetailTweetViewController.swift"
-            timestampString = "514078967.599577"
+            filePath = "CodePathTwitterDemo/LoginViewController.swift"
+            timestampString = "514573338.796601"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CodePathTwitterDemo/LoginViewController.swift"
+            timestampString = "514573330.271106"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

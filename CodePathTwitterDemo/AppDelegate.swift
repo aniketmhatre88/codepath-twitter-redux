@@ -19,11 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let storybpard = UIStoryboard(name: "Main", bundle: nil)
         
+        let hamburgerViewController = storybpard.instantiateViewController(withIdentifier: "HamburgerViewController") as! HamburgerViewController
+        let menuViewController = storybpard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        
+        menuViewController.hamburgerViewController = hamburgerViewController
+        hamburgerViewController.menuViewController = menuViewController
+        
+        // Auto login screen redirect
         if User.currentUser != nil {
-            let vc = storybpard.instantiateViewController(withIdentifier: "TweetsNavigationController")
-            window?.rootViewController = vc
+            window?.rootViewController = hamburgerViewController
         }
         
+        // Logout event observer
         NotificationCenter.default.addObserver(forName: User.userDidLogoutNotificationName, object: nil, queue: OperationQueue.main) { (notification: Notification) in
             let vc = storybpard.instantiateInitialViewController()
             self.window?.rootViewController = vc
