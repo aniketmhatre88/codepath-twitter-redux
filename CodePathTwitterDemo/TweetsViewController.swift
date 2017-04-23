@@ -48,6 +48,13 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
         cell.tweet = tweets[indexPath.row]
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onProfilePicTap(sender:)))
+        
+        let profilePicView = cell.profilePic
+        profilePicView?.isUserInteractionEnabled = true
+        profilePicView?.addGestureRecognizer(tapGesture)
+        
         return cell
     }
     
@@ -91,6 +98,16 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let detailTweetViewController = navigationController.topViewController as! DetailTweetViewController
             detailTweetViewController.tweet = sender as! Tweet
         }
+        
+        if segue.identifier == "profileSegue" {
+            let tapGesture = sender as! UITapGestureRecognizer
+            let tableCell = tapGesture.view?.superview?.superview as! TweetCell
+            let indexPath = tableView.indexPath(for: tableCell)
+            let tweet = tweets[indexPath!.row]
+            
+            let profileViewController = navigationController.topViewController as! ProfileViewController
+            profileViewController.user = tweet.user
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -109,5 +126,9 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }) { (error: Error?) in
             print(error?.localizedDescription)
         }
+    }
+    
+    func onProfilePicTap(sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "profileSegue", sender: sender)
     }
 }

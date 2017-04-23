@@ -18,8 +18,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        user = User.currentUser
-        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -51,7 +49,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func loadUserTweets() {
-        TwitterClient.sharedInstance.userTimeline(success: { (tweets: [Tweet]) in
+        TwitterClient.sharedInstance.userTimeline(user: user, success: { (tweets: [Tweet]) in
             self.tweets = tweets
             self.tableView.reloadData()
             

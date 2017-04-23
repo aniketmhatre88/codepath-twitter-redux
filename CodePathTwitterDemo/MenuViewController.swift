@@ -22,7 +22,10 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         menuTableView.dataSource = self
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let profileNavigationController = storyboard.instantiateViewController(withIdentifier: "ProfileNavigationController")
+        let profileNavigationController = storyboard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
+        let profileViewController = profileNavigationController.topViewController as! ProfileViewController
+        profileViewController.user = User.currentUser
+        
         viewControllers["Profile"] = profileNavigationController
         viewControllers["Timeline"] = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController")
         

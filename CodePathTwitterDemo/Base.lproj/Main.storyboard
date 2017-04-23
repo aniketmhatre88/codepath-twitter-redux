@@ -240,6 +240,7 @@
                     <connections>
                         <outlet property="tableView" destination="TCG-XO-ONE" id="Jae-76-iv1"/>
                         <segue destination="5VA-52-bNY" kind="presentation" identifier="DetailTweetSegue" id="dDX-cG-cHk"/>
+                        <segue destination="a78-HV-JuD" kind="presentation" identifier="profileSegue" id="StN-Bh-QSJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1N-9W-jLw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -750,7 +751,7 @@
         <image name="twitterWhiteIcon" width="60" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4Se-Ei-WOn"/>
         <segue reference="RgQ-zM-Ixi"/>
+        <segue reference="4Se-Ei-WOn"/>
     </inferredMetricsTieBreakers>
 </document>
